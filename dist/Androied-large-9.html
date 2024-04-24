@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Schedule</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Include Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Additional styling can be added here */
+        footer {
+            width: 322px;
+            height: 27.65px;
+            top: 745.88px;
+            left: 26px;
+            gap: 0px;
+            opacity: 0px;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Main Content -->
+    <main class="py-8 px-4">
+        <div class="bg-white max-w-md mx-auto rounded-lg shadow-md p-6">
+            <h1 class="text-2xl font-semibold mb-6">Workout Schedule</h1>
+            <!-- Calendar -->
+            <div class="overflow-x-auto mb-6">
+                <table class="table-auto w-full">
+                    <thead>
+                        <tr>
+                            <th class="border p-2"></th>
+                            <!-- Days of the week headers -->
+                            <th class="border p-2">Sun</th>
+                            <th class="border p-2">Mon</th>
+                            <th class="border p-2">Tue</th>
+                            <th class="border p-2">Wed</th>
+                            <th class="border p-2">Thu</th>
+                            <th class="border p-2">Fri</th>
+                            <th class="border p-2">Sat</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scheduleBody">
+                        <!-- Time slots and workout details will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- Add Workout Button -->
+            <button id="addWorkoutBtn" class="bg-purple-500 text-white py-2 rounded-md w-full">+ Add Workout</button>
+        </div>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-purple-500 py-4 px-6 text-white fixed bottom-0 w-full flex justify-between">
+        <a href="#" class="flex items-center" id="homeLink">
+            <i class="fas fa-home mr-2"></i> Home
+        </a>
+        <a href="#" class="flex items-center" id="searchLink">
+            <i class="fas fa-search mr-2"></i> Search
+        </a>
+        <a href="#" class="flex items-center" id="cameraLink">
+            <i class="fas fa-camera mr-2"></i> Camera
+        </a>
+        <a href="#" class="flex items-center">
+            <i class="fas fa-user mr-2"></i> Profile
+        </a>
+    </footer>
+
+    <!-- Include JavaScript -->
+    <script>
+        // Function to get current date and time
+        function getCurrentDateTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const dayOfWeek = now.getDay();
+            return { hours, minutes, dayOfWeek };
+        }
+
+        // Function to add a workout
+        function addWorkout() {
+            const { hours, minutes, dayOfWeek } = getCurrentDateTime();
+            const workoutTime = `${hours}:${minutes} AM`; // For simplicity, assuming all workouts are in the morning
+            const workoutDetails = prompt("Enter workout details:");
+            if (workoutDetails !== null && workoutDetails.trim() !== '') {
+                // Find the corresponding cell in the table and update it with workout details
+                const scheduleBody = document.getElementById('scheduleBody');
+                const row = scheduleBody.querySelector(`tr:nth-child(${parseInt(hours) + 1})`);
+                if (row) {
+                    const cell = row.children[dayOfWeek + 1];
+                    if (cell) {
+                        cell.textContent = workoutDetails + ', ' + workoutTime;
+                        cell.classList.add('bg-purple-200');
+                    }
+                }
+            }
+        }
+
+        // Event listener for the Add Workout button
+        document.getElementById('addWorkoutBtn').addEventListener('click', addWorkout);
+
+        // Function to initialize the schedule with empty slots
+        function initializeSchedule() {
+            const scheduleBody = document.getElementById('scheduleBody');
+            for (let i = 6; i <= 12; i++) {
+                const row = document.createElement('tr');
+                const timeCell = document.createElement('td');
+                timeCell.textContent = `${i}:00 AM`;
+                timeCell.classList.add('border', 'p-2');
+                row.appendChild(timeCell);
+                for (let j = 0; j < 7; j++) {
+                    const workoutCell = document.createElement('td');
+                    workoutCell.classList.add('border', 'p-2');
+                    row.appendChild(workoutCell);
+                }
+                scheduleBody.appendChild(row);
+            }
+        }
+
+        // Initialize the schedule when the page loads
+        initializeSchedule();
+
+        // Event listener for Camera link
+        document.getElementById('cameraLink').addEventListener('click', function(event) {
+            // Open camera functionality can be implemented here
+            alert("Opening camera...");
+        });
+        
+        // Event listener for Search link
+        document.getElementById('searchLink').addEventListener('click', function(event) {
+            // Implement search functionality here
+            alert("Starting search...");
+        });
+    </script>
+</body>
+</html>

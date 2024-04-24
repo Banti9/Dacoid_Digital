@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What are your goals?</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Additional styling can be added here */
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Main Content -->
+    <main class="py-8 px-4">
+        <div class="bg-white max-w-md mx-auto rounded-lg shadow-md p-6">
+            <h1 class="text-2xl font-semibold mb-6">What are your goals?</h1>
+            <form id="goalsForm">
+                <!-- Goals checkboxes -->
+                <div class="mb-4">
+                    <input type="checkbox" id="weightLoss" name="goal" class="mr-2">
+                    <label for="weightLoss" class="text-gray-800">Weight Loss</label>
+                </div>
+                <div class="mb-4">
+                    <input type="checkbox" id="muscleGain" name="goal" class="mr-2">
+                    <label for="muscleGain" class="text-gray-800">Muscle Gain</label>
+                </div>
+                <div class="mb-4">
+                    <input type="checkbox" id="flexibility" name="goal" class="mr-2">
+                    <label for="flexibility" class="text-gray-800">Flexibility and Mobility</label>
+                </div>
+                <div class="mb-4">
+                    <input type="checkbox" id="generalFitness" name="goal" class="mr-2">
+                    <label for="generalFitness" class="text-gray-800">General Fitness</label>
+                </div>
+                <div class="mb-4">
+                    <input type="checkbox" id="eventTraining" name="goal" class="mr-2">
+                    <label for="eventTraining" class="text-gray-800">Event - specific training</label>
+                </div>
+                <div class="mb-6">
+                    <input type="checkbox" id="mindfulness" name="goal" class="mr-2">
+                    <label for="mindfulness" class="text-gray-800">Mindfulness and Mental Health</label>
+                </div>
+                <!-- Confirm button -->
+                <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-md">Confirm</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Include JavaScript -->
+    <script>
+        // Get the form element
+        const goalsForm = document.getElementById('goalsForm');
+
+        // Add submit event listener to the form
+        goalsForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get all selected checkboxes
+            const selectedGoals = Array.from(document.querySelectorAll('input[name="goal"]:checked'))
+                                        .map(checkbox => checkbox.nextElementSibling.textContent);
+
+            // Log selected goals (you can handle them as needed)
+            console.log('Selected goals:', selectedGoals);
+        });
+    </script>
+</body>
+</html>

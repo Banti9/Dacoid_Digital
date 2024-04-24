@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Page</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Additional styling can be added here */
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation -->
+    <nav class="bg-gray-800 text-white p-4">
+        <ul class="flex justify-between">
+            <li><a href="Android-large-1.html">Track Your Goal</a></li>
+            <li><a href="#get-burn">Get Burn</a></li>
+            <li><a href="#create-an-account">Create an Account</a></li>
+            <li><a href="#workout-tracker">Workout Tracker</a></li>
+            <li><a href="#what-are-your-goals">What are your goals?</a></li>
+            <li><a href="#workout-schedule">Workout Schedule</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Track Your Goal Section -->
+        <section id="track-your-goal" class="py-8 px-4">
+            <!-- Paste the content of the Track Your Goal section here -->
+        </section>
+
+        <!-- Get Burn Section -->
+        <section id="get-burn" class="py-8 px-4">
+            <!-- Paste the content of the Get Burn section here -->
+        </section>
+
+        <!-- Create an Account Section -->
+        <section id="create-an-account" class="py-8 px-4">
+            <!-- Paste the content of the Create an Account section here -->
+        </section>
+
+        <!-- Workout Tracker Section -->
+        <section id="workout-tracker" class="py-8 px-4">
+            <!-- Paste the content of the Workout Tracker section here -->
+        </section>
+
+        <!-- What Are Your Goals? Section -->
+        <section id="what-are-your-goals" class="py-8 px-4">
+            <!-- Paste the content of the What Are Your Goals? section here -->
+        </section>
+
+        <!-- Workout Schedule Section -->
+        <section id="workout-schedule" class="py-8 px-4">
+            <!-- Paste the content of the Workout Schedule section here -->
+        </section>
+    </main>
+
+    <!-- Include JavaScript if needed -->
+    <!-- Include JavaScript if needed -->
+<script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // JavaScript code for navigation
+    function navigateToAndroidLarge() {
+        // JavaScript code for navigation
+        window.location.href = "Android Large - 4";
+    }
+
+    // JavaScript code for form submission
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        // Here you can add JavaScript code to handle form submission, such as sending data to a server or validating inputs
+        console.log('Form submitted!');
+    });
+
+    // JavaScript code for login buttons
+    document.getElementById('googleBtn').addEventListener('click', function() {
+        // Add Google login functionality
+        console.log('Google login clicked!');
+    });
+
+    document.getElementById('facebookBtn').addEventListener('click', function() {
+        // Add Facebook login functionality
+        console.log('Facebook login clicked!');
+    });
+
+    // JavaScript code for "Good job" button
+    document.getElementById('goodJobBtn').addEventListener('click', function() {
+        alert('Great job!');
+    });
+
+    // JavaScript code for toggling workout section
+    document.getElementById('toggleWorkoutBtn').addEventListener('click', function() {
+        // Toggle functionality for workout section
+        console.log('Toggle workout button clicked!');
+    });
+
+    // JavaScript code for toggling training section
+    document.getElementById('toggleTrainingBtn').addEventListener('click', function() {
+        // Toggle functionality for training section
+        console.log('Toggle training button clicked!');
+    });
+</script>
+
+</body>
+</html>

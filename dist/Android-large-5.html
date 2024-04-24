@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Back</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <!-- Main Content -->
+    <main class="min-h-screen flex justify-center items-center py-8">
+        <div class="bg-white max-w-md w-full px-8 py-6 rounded-lg shadow-md">
+            <h1 class="text-2xl font-semibold mb-6">Welcome Back</h1>
+            <form id="loginForm">
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="email" name="email" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="password" name="password" autocomplete="current-password" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+                <div class="mb-6 flex justify-between items-center">
+                    <a href="#" class="text-indigo-600 text-sm">Forgot your password?</a>
+                </div>
+                <button type="submit" class="w-full bg-indigo-600 text-white py-2 rounded-md">Sign In</button>
+            </form>
+            <div class="flex justify-center items-center mt-6">
+                <span class="mr-2 border-r border-gray-300"></span>
+                <span class="text-gray-500 text-sm">Or</span>
+                <span class="ml-2 border-l border-gray-300"></span>
+            </div>
+            <div class="flex justify-center items-center mt-6 space-x-4">
+                <button id="googleBtn" class="bg-white border border-gray-300 px-4 py-2 rounded-md flex items-center">
+                    <img src="https://imagepng.org/wp-content/uploads/2019/08/google-icon.png" alt="Google Icon" class="w-4 h-4 mr-2">
+                    <span class="text-gray-700">Google</span>
+                </button>
+                <button id="facebookBtn" class="bg-white border border-gray-300 px-4 py-2 rounded-md flex items-center">
+                    <img src="https://freepngimg.com/thumb/facebook/65541-logo-facebook-icon-free-hq-image.png" alt="Facebook Icon" class="w-4 h-4 mr-2">
+                    <span class="text-gray-700">Facebook</span>
+                </button>
+            </div>
+            <p class="mt-4 text-center text-sm text-gray-600">Don't have an account yet? <a href="#" class="text-indigo-600">Create an account</a></p>
+        </div>
+    </main>
+
+    <!-- Include JavaScript -->
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            // Here you can add JavaScript code to handle form submission, such as sending data to a server or validating inputs
+            console.log('Form submitted!');
+        });
+
+        document.getElementById('googleBtn').addEventListener('click', function() {
+            // Add Google login functionality
+            console.log('Google login clicked!');
+        });
+
+        document.getElementById('facebookBtn').addEventListener('click', function() {
+            // Add Facebook login functionality
+            console.log('Facebook login clicked!');
+        });
+    </script>
+</body>
+</html>
